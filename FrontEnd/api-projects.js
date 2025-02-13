@@ -14,10 +14,10 @@ async function fetchProjects() {
       throw new Error(`Erreur HTTP : ${response.status}`);
     }
 
-    const projects = await response.json();
+    projects = await response.json();
     console.log("Projets reçus de l'API :", projects);
     displayProjects(projects);
-    
+
   } catch (error) {
     console.error("Erreur lors de la récupération des projets :", error);
   }

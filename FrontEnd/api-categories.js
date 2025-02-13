@@ -72,10 +72,18 @@ function displayCategories(categories) {
 
 async function filterProjectsByCategory(categoryId) {
     console.log("Données API reçues :", projects);
-    
-    const filteredProjects = projects.filter(project => project.categoryId == categoryId);
-    console.log("Projets filtrés :", filteredProjects);
 
+    if (!projects || projects.length === 0) {
+        console.error("Erreur : Aucun projet disponible !");
+        return;
+    }
+
+    const filteredProjects = projects.filter(project => {
+        console.log("comparaison :", project.categoryId, "==", categoryId);
+        return project.categoryId == Number(categoryId); // On convertit bien categoryId en nombre
+    });
+
+    console.log("Projets filtrés :", filteredProjects);
     displayProjects(filteredProjects);
 }
 
