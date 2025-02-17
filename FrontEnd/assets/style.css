@@ -104,7 +104,21 @@ nav li {
 
 li:hover {
 	color: #B1663C;
+	cursor: pointer;
 }
+
+/****** modif lien login/logout ******/
+
+a#auth-link {
+	text-decoration: none;
+	color: black;
+}
+
+a#auth-link:hover {
+	color: #B1663C;
+	cursor: pointer;
+}
+
 #introduction {
 	display: flex;
 	align-items: center;

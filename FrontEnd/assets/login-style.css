@@ -100,7 +100,7 @@ input#email, #password {
 	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.103);
 }
 
-button {
+#auth-button {
     border-radius: 60px;
 	background-color: transparent;
 	padding: 5px 15px;
@@ -112,7 +112,7 @@ button {
     font-size: 14px;
 }
 
-button:hover {
+#auth-button:hover {
 	background-color: #1D6154;
 	color: white;
 	cursor: pointer;

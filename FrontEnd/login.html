@@ -11,6 +11,7 @@
         rel="stylesheet">
     <meta name="description" content="">
     <link rel="stylesheet" href="assets/login-style.css" />
+    <script src="auth.js" defer></script>
     <script src="login.js" defer></script>
 </head>
 
@@ -29,15 +30,16 @@
     <main>
         <section id="login">
             <h2>Log In</h2>
-            <form action="#" method="post">
+            <form action="#" id="login-form" method="post" >
                 <label for="email">E-mail</label>
                 <input type="email" id="email" name="email" required />
 
                 <label for="password">Mot de passe</label>
                 <input type="password" id="password" name="password" required />
 
-                <button type="submit">Se connecter</button>
+                <button type="submit" id="auth-button">Se connecter</button>
                 <a href="#" class="password_forgot"> Mot de passe oublié </a>
+                <p id="error-message"></p>
             </form>
         </section>
     </main>
