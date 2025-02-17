@@ -44,6 +44,8 @@ function displayCategories(categories) {
     const allButton = document.createElement("button");
     allButton.textContent = "Tous";
     allButton.dataset.categoryId = "all";
+    allButton.id = "all"
+    allButton.classList.add("active", "button-filters") 
     categoriesContainer.appendChild(allButton);
     console.log("Bouton 'Tous' ajouté");
 
@@ -58,12 +60,14 @@ function displayCategories(categories) {
         const button = document.createElement("button");
         button.textContent = category.name;
         button.dataset.categoryId = category.id;
+        button.classList.add("button-filters")
         categoriesContainer.appendChild(button);
         console.log(`Bouton '${category.name}' ajouté`);
 
         button.addEventListener("click", () => {
             console.log(`Bouton '${category.name}' cliqué, filtrage des projets`);
             filterProjectsByCategory(category.id);
+            document.querySelector("#all").classList.remove("active")
         });
     });
 }

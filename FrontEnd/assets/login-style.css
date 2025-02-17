@@ -1,0 +1,146 @@
+/*html, body, ul, li, header, nav, form {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}*/
+
+html {
+	background-color: #fefff3;
+}
+
+body {
+	margin: 0px;
+}
+
+/*header, nav, section, footer {
+	display: block;
+}*/
+
+/****** header ******/
+
+header {
+	display: flex;
+	justify-content: space-between;
+	margin: 40px 100px 130px;
+}
+
+h1{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Syne';
+	font-size: 22px;
+	font-weight: 800;
+	color: #B1663C;
+}
+
+h1 > span {
+	font-family: 'Work Sans';
+	font-size:10px;
+	letter-spacing: 0.1em;
+}
+
+nav ul {
+	display: flex;
+	align-items: center;
+	list-style-type: none;
+
+}
+
+nav li {
+	padding: 0 10px;
+}
+
+nav li a {
+    text-decoration: none;
+    font-size: 1em;
+    color: black;
+	font-family: 'Work Sans';
+}
+
+li a:hover {
+	font-weight: bold;
+    cursor: pointer;
+}
+
+/***** connexion form *****/
+
+h2 {
+    font-family: 'syne';
+    font-size: 30px;
+    text-align: center;
+    color: #1D6154;
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	margin-bottom: 250px;
+}
+
+label {
+	width: 460px;
+	font-family: 'Work Sans';
+	font-size: 14px;
+	margin-bottom: 5px;
+	color: #3d3d3d;
+	font-weight: 600;
+	text-align: left;
+}
+
+input#email, #password {
+    width: 30%;
+    margin-bottom: 30px;
+    height: 40px;
+	border: none;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.103);
+}
+
+button {
+    border-radius: 60px;
+	background-color: transparent;
+	padding: 5px 15px;
+	border-color: #1D6154;
+	color: #1D6154;
+	font-size: 16px;
+	font-family: 'syne';
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+button:hover {
+	background-color: #1D6154;
+	color: white;
+	cursor: pointer;
+}
+
+.password_forgot {
+	font-family: 'Work Sans';
+	font-size: 14px;
+	color: #3d3d3d;
+	font-weight: 600;
+}
+
+/****** legal Notice ******/
+
+footer {
+	background-color: white;
+	height: 60px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding-right: 100px;
+}
+
+a.legal_notice {
+	font-family: 'Work Sans';
+	font-size: 14px;
+	text-align: right;
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
