@@ -30,7 +30,8 @@ html {
 	background-color: #fefef3;
 }
 
-/* HTML5 display-role reset for older browsers */
+/****** HTML5 display-role reset for older browsers ******/
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -53,7 +54,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-/** end reset css**/
+
+/****** end reset css ******/
+
 body {
 	max-width: 1140px;
 	margin:auto;
@@ -107,17 +110,19 @@ li:hover {
 	cursor: pointer;
 }
 
-/****** modif lien login/logout ******/
+/****** modif link login/logout, projects and contacts ******/
 
-a#auth-link {
+a.nav-link {
 	text-decoration: none;
 	color: black;
 }
 
-a#auth-link:hover {
+a.nav-link:hover {
 	color: #B1663C;
 	cursor: pointer;
 }
+
+/****** Introduction ******/
 
 #introduction {
 	display: flex;
@@ -142,6 +147,9 @@ a#auth-link:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
+/****** portfolio ******/
+
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 50px;
@@ -158,6 +166,9 @@ a#auth-link:hover {
 	width: 100%;
 
 }
+
+/****** contacts ******/
+
 #contact {
 	width: 50%;
 margin: auto;
@@ -207,6 +218,7 @@ footer nav ul {
 	margin: 2em
 }
 
+
 /****** filters ******/
 
 nav#filters {
@@ -227,6 +239,12 @@ nav#filters {
 }
 
 .button-filters:hover {
+	background-color: #1D6154;
+	color: white;
+	cursor: pointer;
+}
+
+.button-filters:focus {
 	background-color: #1D6154;
 	color: white;
 	cursor: pointer;
