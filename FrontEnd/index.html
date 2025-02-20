@@ -7,24 +7,33 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/0b071184f8.js" crossorigin="anonymous"></script>
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 	<script src="auth.js" defer></script>
 	<script src="api-categories.js" defer></script>
 	<script src="api-projects.js" defer></script>
 </head>
+
 <body>
+	<div id="edition-mode">
+		<i class="fa-regular fa-pen-to-square"></i>
+		<p>Mode édition</p>
+	</div>
+
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+
 	<nav>
 		<ul>
-			<li>projets</li>
-			<li>contact</li>
-			<li><a href="login.html" id="auth-link">login</a></li>
+			<li><a href="#ancre-projets" id="projects-link" class="nav-link">Projets</a></li>
+			<li><a href="#ancre-contacts" id="contact-link" class="nav-link">Contacts</a></li>
+			<li><a href="login.html" id="auth-link" class="nav-link">Login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
 </header>
+
 <main>
 	<section id="introduction">
 		<figure>
@@ -39,7 +48,14 @@
 	</section>
 
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<div id="projects-header">
+			<h2 id="ancre-projets">Mes Projets</h2>
+			<div id="modif-filters">
+				<i class="fa-regular fa-pen-to-square">
+				</i><p>modifier</p>
+			</div>
+		</div>
+
 		<div id="categories">
 			<nav id="filters"></nav>
 		</div>
@@ -47,7 +63,7 @@
 	</section>
 
 	<section id="contact">
-		<h2>Contact</h2>
+		<h2 id="ancre-contacts">Contact</h2>
 		<p>Vous avez un projet ? Discutons-en !</p>
 		<form action="#" method="post">
 			<label for="name">Nom</label>
