@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // on fait disparaître les filtres et apparaître "modifier"
         if (filters) filters.style.display = "none";
         if(modifFilters) modifFilters.style.display = "flex"
+
         // on fait apparaître la barre du mode édition 
         if (editionMode) editionMode.style.display = "flex";
 
@@ -64,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //si aucun token trouvé, laisser les filtres et retirer "modifier"
         if (filters) filters.style.display = "flex";
         if (modifFilters) modifFilters.style.display = "none"
+        
         //si aucun token trouvé, cacher la barre du mode édition 
         if (editionMode) editionMode.style.display = "none";
 

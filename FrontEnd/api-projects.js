@@ -35,6 +35,8 @@ function displayProjects(projects) {
 
   projects.forEach((project) => {
     const figure = document.createElement("figure");
+    figure.setAttribute("data-id", project.id); // On stocke l'ID du projet (pour la modale)
+
     const img = document.createElement("img");
     img.src = project.imageUrl;
     img.alt = project.title;

@@ -197,7 +197,14 @@ nav#filters {
 	display: flex;
 	height: 35px;
 	align-items: center;
-	gap: 10px;
+	gap: 5px;
+}
+
+#open-modal-button {
+	border: none;
+	background-color: #fefef3;
+	font-family: 'Work Sans';
+	cursor: pointer;
 }
 
 /****** edition mode (user connected) ******/
@@ -285,4 +292,98 @@ footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em
+}
+
+/****** Modal ******/
+
+.modal {
+	display: none; /* Cachée par défaut */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+}
+  
+.modal-content {
+	position: relative; /*pour positionner la croix pour femrer la modale */
+	background-color: white;
+	padding: 50px 100px;
+	width: 450px;
+	max-height: 550px;
+	margin: 20px auto;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.modal-title {
+	font-family: 'Work Sans';
+	font-weight: 400;
+	font-size: 26px;
+	margin-bottom: 50px;
+	color: black;
+}
+
+.modal-gallery {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px; /* Espacement entre les projets */
+	padding-bottom: 50px;
+	margin-bottom: 30px;
+	border-bottom: 1px solid gray;
+}
+  
+.modal-project {
+	position: relative; /* pour positionner l'icône poubelle */
+	width: 80px; /* Largeur d'un projet en miniature */
+	text-align: center;
+}
+  
+.modal-thumbnail {
+	width: 100%; /* Image responsive */
+	height: auto;
+	max-width: 100px; 
+}
+
+.delete-button {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	background-color: black;
+	border-radius: 5px;
+	color: white;
+	width: 25px;
+	height: 25px;
+	font-size: 14px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+  
+.button-add-photo {
+	border-radius: 60px;
+	background-color: #1D6154;
+	padding: 5px 40px;
+	border-color: #1D6154;
+	color:white;
+	font-size: 14px;
+	font-family: 'syne';
+}
+
+.button-add-photo:hover {
+	cursor: pointer;
+}
+
+.close-modal {
+	position: absolute;
+	top: 15px; /* Ajuste la distance par rapport au haut */
+	right: 20px; /* Ajuste la distance par rapport à la droite */
+	font-size: 24px; /* Augmente la taille si nécessaire */
+	font-weight: bold;
+	color: black;
+	cursor: pointer;
+	background: none;
+	border: none;
 }
