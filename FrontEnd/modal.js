@@ -51,12 +51,13 @@ async function deleteWork(workId) {
             console.log("Projet supprimé !");
             document.querySelector(`.modal-project[data-id='${workId}']`).remove(); // Suppression de l'élément du DOM
             document.querySelector(`.gallery [data-id='${workId}']`)?.remove(); // Supprime dans la galerie d'accueil
-            fetchProjects(); // Rafraîchir la galerie
+            //fetchProjects(); // Rafraîchir la galerie
+            
 
         } else {
             console.log("Erreur lors de la suppression :", response.status);
         }
-        
+
     } catch (error) {
         console.log("Erreur réseau :", error);
     }
@@ -73,11 +74,11 @@ document.querySelector(".modal-gallery").addEventListener("click", (event) => {
     }
 });
 
+// Gérer l'ouverture et la fermeture de la modale 
+
 document.querySelector(".open-modal-button").addEventListener("click", () => {
     displayProjectsInModal(projects);
   });
-
-// Gérer l'ouverture et la fermeture de la modale 
 
 const modal = document.getElementById("modal");
 const openModalButton = document.querySelector(".open-modal-button"); // Bouton pour ouvrir la modale
@@ -98,6 +99,16 @@ window.addEventListener("click", (event) => {
   if (event.target === modal) {
     modal.style.display = "none";
   }
+});
+
+// Ecouter l'évènement d'ouverture de la modale d'ajout de photo
+
+const addPhotoButton = document.getElementById("button-add-photo");
+
+addPhotoButton.addEventListener("click", () => {
+    import("./modal-add-project.js").then(module => {
+        module.openAddProjectModal(); // Appelle la fonction d'ouverture
+    });
 });
   
 

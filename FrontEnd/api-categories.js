@@ -1,14 +1,3 @@
-// Envoi d'une requête API get categories (fichier app.js ligne 24)
-
-console.log("Fetching categories...");
-fetch("http://localhost:5678/api/categories")
-  .then((response) => response.json())
-  .then((data) => {
-    console.log("Categories fetched:", data);
-  })
-  .catch((error) => console.error("Fetch error:", error));
-
-
 // Réupération des catégories
 
 async function fetchCategories() {
@@ -104,6 +93,3 @@ function displayProjects(projects) {
         projectsContainer.appendChild(projectElement);
     });
 }
-
-// Lancement de la récupération des catégories
-fetchCategories();

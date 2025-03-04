@@ -1,6 +1,3 @@
-// Envoi d'une requête sur API get works (fichier app.js pour trouver le bon lien pour worksRoute ligne 25 )
-fetch("http://localhost:5678/api/works");
-
 // Récupération dynamique des projets dans gallery
 
 let projects = []; // Déclaration d'une variable globale pour les divers fichiers js
