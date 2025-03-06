@@ -100,30 +100,31 @@
 <!-- Modal add project -->
 <div id="modal-add-project" class="modal-add-project">
 	<div class="modal-content">
-    	<span><i class="fa-solid fa-arrow-left modal-arrow-left"></i></span>
-		<span class="close-modal">&times;</span>
+    	<span><i class="fa-solid fa-arrow-left" id="modal-arrow-left"></i></span>
+		<span id="close-modal" class="close-modal">&times;</span>
 		<h2 class="modal-add-project-title">Ajout photo</h2>
 
     	<form id="add-project-form" class="add-project-form">
 			
-			<div class="upload-container">
-				<label for="file-input" class="upload-box">
-					<img src="assets/icons/Vector.png" alt="Icône d'image" class="upload-icon">
-					<p class="upload-text">+ Ajouter photo</p>
-					<p class="upload-info">jpg, png : 4mo max</p>
+			<div class="upload-container" id="upload-container">
+				<label for="image-upload" class="upload-box" id="upload-box">
+					<input type="file" id="image-upload" accept="image/png, image/jpeg" required>
+					<img src="assets/icons/Vector.png" id="upload-icon" class="upload-icon">
+					<img id="preview-image" src="">
+					<button type="button" id="upload-button" class="upload-button">+ Ajouter photo</button>
+					<p id="upload-info" class="upload-info">jpg, png : 4mo max</p>
 				</label>
-        		<input type="file" id="image-upload" accept="image/png, image/jpeg" required>
 			</div>
 
-			<label for="title" class="title-add-project">Titre</label>
-        	<input type="text" id="title-new-project" required>
+			<label for="title-new-project" class="title-add-project">Titre</label>
+        	<input type="text" id="title-new-project" name="title-project" required >
 
-			<label for="category" class="category-add-project">Catégorie</label>
-        	<select id="category" required>
+			<label for="category-add-project" class="category-add-project">Catégorie</label>
+        	<select id="category-add-project" required>
             	<option value=""></option>
         	</select>
     	</form>
-			<button type="submit" id="button-valid" class="button-valid">Valider</button>
+			<button type="submit" id="button-valid-add-photo" class="button-valid">Valider</button>
 	</div>
 </div>
   
