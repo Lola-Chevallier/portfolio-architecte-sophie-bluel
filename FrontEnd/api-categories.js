@@ -1,6 +1,6 @@
 // Réupération des catégories
 
-async function fetchCategories() {
+export async function fetchCategories() {
   try {
     const response = await fetch("http://localhost:5678/api/categories");
 
