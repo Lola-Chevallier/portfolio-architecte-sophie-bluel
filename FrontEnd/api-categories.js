@@ -1,6 +1,6 @@
 // Réupération des catégories
-
-export async function fetchCategories() {
+export const categories = await fetchCategories();
+async function fetchCategories() {
   try {
     const response = await fetch("http://localhost:5678/api/categories");
 
@@ -17,10 +17,7 @@ export async function fetchCategories() {
   }
 }
 
-fetchCategories()
-    .then(categories => {
-    displayCategories(categories);
-  });
+displayCategories(categories);
 
 // Affichage des catégories sous forme de boutons
 
@@ -81,15 +78,3 @@ async function filterProjectsByCategory(categoryId) {
 }
 
 // Fonction d'affichage des projets
-
-function displayProjects(projects) {
-    console.log("Affichage des projets...");
-    const projectsContainer = document.getElementById("portfolio");
-    projectsContainer.innerHTML = ""; // On vide le conteneur avant d'afficher les projets filtrés
-
-    projects.forEach(project => {
-        const projectElement = document.createElement("div");
-        projectElement.textContent = project.title;
-        projectsContainer.appendChild(projectElement);
-    });
-}

@@ -51,10 +51,10 @@ async function deleteWork(workId) {
             console.log("Projet supprimé !");
 
             // Supprimer du tableau local
-            projects = projects.filter(project => project.id !== parseInt(workId));
+            projects = projects.filter(project => project.id !== parseInt(workId)); // garde tous les projets sauf celui dont l'id correspond à workId
 
             //metrre à jour la galerie et la modale avec la liste actualisée
-            
+
             displayProjectsInModal(projects);
             document.querySelector(`.gallery [data-id='${workId}']`)?.remove(); // Supprime dans la galerie d'accueil
 

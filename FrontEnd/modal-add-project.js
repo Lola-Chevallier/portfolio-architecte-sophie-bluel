@@ -52,27 +52,16 @@ const uploadButton = document.getElementById("upload-button");
 const fileInput = document.getElementById("image-upload");
 const uploadBox = document.getElementById("upload-box");
 
-document.addEventListener("DOMContentLoaded", function () {
-
-    // Empêcher l'ouverture du fichier si on clique ailleurs que sur le bouton dans label
-        //uploadBox.addEventListener("click", function (event) {
-        //if (event.target.id !== "upload-button") {
-           // event.preventDefault();
-        //}
-    //});
-
-    uploadButton.addEventListener("click", function (event) {
-        event.stopPropagation(); // empêche le clic de se proprager au label 
-        fileInput.click(); // Ouvre l'explorateur de fichiers
-    });
-
-    fileInput.addEventListener("change", function () {
-      if (fileInput.files.length > 0) {
-          console.log("Fichier sélectionné :", fileInput.files[0]); // Affiche le fichier sélectionné dans la console
-        }
-    });
+uploadButton.addEventListener("click", function (event) {
+    event.stopPropagation(); // empêche le clic de se proprager au label 
+    fileInput.click(); // Ouvre l'explorateur de fichiers
 });
 
+fileInput.addEventListener("change", function () {
+  if (fileInput.files.length > 0) {
+      console.log("Fichier sélectionné :", fileInput.files[0]); // Affiche le fichier sélectionné dans la console
+    }
+});
 
 // Afficher la photo en miniature 
 
@@ -103,17 +92,16 @@ fileInput.addEventListener("change", function () {
 
 // récupération des catégories
 
-import { fetchCategories } from "./api-categories.js"; // Importer la fonction fetch du fichier api-categories.js
+import { categories } from "./api-categories.js"; // Importer la fonction fetch du fichier api-categories.js
 
 const categorySelect = document.getElementById("category-add-project");
 
 // création de populateCategory pour ajouter les catégories dans select
 
-async function populateCategories() {
+function populateCategories() {
 
 try {
-const categories = await fetchCategories();
-
+console.log(categories);
 categories.forEach(category => {
 const option = document.createElement("option");
 option.value = category.id; // ID de la catégorie
@@ -127,7 +115,7 @@ console.error("Erreur lors du remplissage des catégories :", error);
 };
 
 // Appeler la fonction au chargement de la modale
-
+populateCategories();
 document.addEventListener("DOMContentLoaded", populateCategories);
 
 // vérifier que tous les champs sont remplis pour que le bouton valider soit cliquable
