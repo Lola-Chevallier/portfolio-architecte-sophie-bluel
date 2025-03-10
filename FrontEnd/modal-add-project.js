@@ -185,10 +185,42 @@ body: formData,
 console.log("Requête envoyée avec token :", token);
 
 if (response.ok) {
-console.log("Projet ajouté avec succès !");
+    const newProject = await response.json(); // Récupérer la réponse de l'API
+console.log("Projet ajouté avec succès !", newProject);
 
-// Optionnel : Met à jour l'affichage des projets après ajout
-// fetchProjects();
+ // **Mettre à jour dynamiquement l'affichage sans recharger la page**
+
+            // 1. Ajouter le projet à la galerie d'accueil sans rechargement 
+
+            const gallery = document.querySelector(".gallery");
+            const figure = document.createElement("figure");
+            figure.dataset.id = newProject.id;
+            figure.innerHTML = `
+                <img src="${newProject.imageUrl}" alt="${newProject.title}">
+                <figcaption>${newProject.title}</figcaption>
+            `;
+            gallery.appendChild(figure);
+
+            // 2. Ajouter le projet à la galerie de la modale sans rechargement
+
+            const modalGallery = document.querySelector(".modal-gallery");
+            const modalFigure = document.createElement("figure");
+            modalFigure.dataset.id = newProject.id;
+            modalFigure.classList.add("modal-project");
+
+            const img = document.createElement("img");
+            img.src = newProject.imageUrl;
+            img.alt = newProject.title;
+            img.classList.add("modal-thumbnail");
+
+            const deleteButton = document.createElement("button");
+            deleteButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+            deleteButton.classList.add("delete-button");
+            deleteButton.dataset.id = newProject.id;
+
+            modalFigure.appendChild(img);
+            modalFigure.appendChild(deleteButton);
+            modalGallery.appendChild(modalFigure);
 
 // Réinitialisation du formulaire
 fileInput.value = "";

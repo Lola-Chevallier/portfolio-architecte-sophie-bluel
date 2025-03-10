@@ -49,9 +49,18 @@ async function deleteWork(workId) {
 
         if (response.ok) {
             console.log("Projet supprimé !");
-            document.querySelector(`.modal-project[data-id='${workId}']`).remove(); // Suppression de l'élément du DOM
+
+            // Supprimer du tableau local
+            projects = projects.filter(project => project.id !== parseInt(workId));
+
+            //metrre à jour la galerie et la modale avec la liste actualisée
+            
+            displayProjectsInModal(projects);
             document.querySelector(`.gallery [data-id='${workId}']`)?.remove(); // Supprime dans la galerie d'accueil
-            //fetchProjects(); // Rafraîchir la galerie
+
+            // Mettre à jour le tableau local pour éviter qu'il réapparaisse
+
+            projects = projects.filter(project => project.id !== workId);
             
 
         } else {
@@ -66,13 +75,25 @@ async function deleteWork(workId) {
 // écouteur d'événement pour le bouton de suppression
 
 document.querySelector(".modal-gallery").addEventListener("click", (event) => {
-    if (event.target.closest(".delete-button")) { // Vérifie si on clique sur un bouton de suppression
-        const workId = event.target.closest(".modal-project")?.dataset.id; // Récupérer l'ID du projet
-        console.log("ID du projet récupéré :", workId);
-        console.log(`Suppression demandée pour le projet ID: ${workId}`);
-        deleteWork(workId);
-    }
+  const deleteButton = event.target.closest(".delete-button");
+  if (!deleteButton) return;
+
+  const workId = deleteButton.dataset.id;
+  if (!workId) {
+      console.error("Impossible de récupérer l'ID du projet !");
+      return;
+  }
+
+  console.log(`Suppression demandée pour le projet ID: ${workId}`);
+  deleteWork(workId);
 });
+
+// Fonction pour ouvrir la modale sans re-fetch les projets
+
+function openModal() {
+  displayModalProjects([...projects]); // Cloner la liste pour éviter d'afficher d'anciennes données
+  modal.style.display = "block";
+}
 
 // Gérer l'ouverture et la fermeture de la modale 
 
