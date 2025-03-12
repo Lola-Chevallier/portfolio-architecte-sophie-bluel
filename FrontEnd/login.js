@@ -17,6 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("loginForm trouvé :", loginForm);
     const emailInput = document.querySelector("#email");
     const passwordInput = document.querySelector("#password");
+    const errorMessage = document.querySelector("#error-message"); // Ajout du message d'erreur
+
+    // Supprime le message d'erreur dès qu'on tape à nouveau les identifiants
+
+    emailInput.addEventListener("input", () => {
+    errorMessage.style.display = "none";
+    });
+
+    passwordInput.addEventListener("input", () => {
+    errorMessage.style.display = "none";
+    });
 
     if (!loginForm) {
         console.error("Erreur : Formulaire introuvable !");
@@ -41,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Email ou mot de passe vide.");
             errorMessage.textContent = "Veuillez remplir tous les champs.";
             errorMessage.style.color = "red";
+            errorMessage.style.display = "block";
             return;
         }
         
@@ -67,8 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.location.href = "index.html";
             } else {
                 console.log("Échec de connexion : Identifiants incorrects.");
-                errorMessage.textContent = "Identifiants incorrects.";
-                errorMessage.style.color = "red";
+                errorMessage.textContent = "identifiants incorrects.";
+                errorMessage.style.display = "block"; // Afficher le message
             }
         } catch (error) {
             console.log("Erreur lors de la connexion :", error);

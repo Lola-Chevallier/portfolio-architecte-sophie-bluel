@@ -13,6 +13,7 @@ html {
 
 body {
 	margin: 0px;
+	user-select: none;
 }
 
 /*header, nav, section, footer {
@@ -98,6 +99,12 @@ input#email, #password {
     height: 40px;
 	border: none;
 	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.103);
+}
+
+#error-message {
+	display: none;
+	font-family: 'Work Sans';
+	color: red;
 }
 
 #auth-button {

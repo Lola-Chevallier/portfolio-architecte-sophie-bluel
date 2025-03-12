@@ -26,6 +26,7 @@ export function openAddProjectModal() {
     backButton.addEventListener("click", () => {
         modalAddProject.style.display = "none";
         modalGallery.style.display = "block";
+        resetAddProjectModal();
     });
 
     // Fermeture modale-add-project
@@ -33,6 +34,7 @@ export function openAddProjectModal() {
     closeButton.addEventListener("click", () => {
         modalAddProject.style.display = "none";
         modalGallery.style.display = "block";
+        resetAddProjectModal();
     });    
 }
 
@@ -42,6 +44,7 @@ window.addEventListener("click", (event) => {
   if (modalAddProject && event.target === modalAddProject) {
     modalAddProject.style.display = "none";
     modal.style.display = "none";
+    resetAddProjectModal();
     }
 });
 
@@ -88,6 +91,21 @@ fileInput.addEventListener("change", function () {
     }
 });
 
+// Fonction pour réinitialiser la modale
+function resetAddProjectModal() {
+    const preview = document.getElementById("preview-image");
+    const uploadButton = document.getElementById("upload-button");
+
+    preview.src = "";
+    preview.style.display = "none";
+    uploadButton.style.display = "block"; 
+    fileInput.value = "";
+    titleInput.value = "";
+    categorySelect.value = "";
+    submitButton.disabled = true;
+    submitButton.style.backgroundColor = "#A7A7A7";
+}
+
 // afficher les catégories
 
 // récupération des catégories
@@ -109,9 +127,11 @@ option.textContent = category.name; // Nom de la catégorie
 categorySelect.appendChild(option);
 });
 }
+
 catch (error) {
 console.error("Erreur lors du remplissage des catégories :", error);
 }
+
 };
 
 // Appeler la fonction au chargement de la modale
@@ -120,28 +140,29 @@ document.addEventListener("DOMContentLoaded", populateCategories);
 
 // vérifier que tous les champs sont remplis pour que le bouton valider soit cliquable
 
-// sélection des élements
+    // sélection des élements
 
-const titleInput = document.getElementById("title-new-project");
-const submitButton = document.getElementById("button-valid-add-photo");
+    const titleInput = document.getElementById("title-new-project");
+    const submitButton = document.getElementById("button-valid-add-photo");
 
-//Fonction qui vérifie que tous les champs sont remplis
+    //Fonction qui vérifie que tous les champs sont remplis
 
-function checkFormValidity() {
-if (fileInput.files.length > 0 && titleInput.value.trim() !== "" && categorySelect.value !== "") {
-submitButton.disabled = false; // Active le bouton
-submitButton.style.backgroundColor = "#1D6154"; // Change la couleur du bouton
-} else {
-submitButton.disabled = true; // Désactive le bouton
-submitButton.style.backgroundColor = "#A7A7A7"; // Reste grisé
-}
-}
+    function checkFormValidity() {
+    if (fileInput.files.length > 0 && titleInput.value.trim() !== "" && categorySelect.value !== "") {
+    submitButton.disabled = false; // Active le bouton
+    submitButton.style.backgroundColor = "#1D6154"; // Change la couleur du bouton
 
-// Ajout des écouteurs d'événements sur les champs
+    } else {
+    submitButton.disabled = true; // Désactive le bouton
+    submitButton.style.backgroundColor = "#A7A7A7"; // Reste grisé
+    }
+    }
 
-fileInput.addEventListener("change", checkFormValidity);
-titleInput.addEventListener("input", checkFormValidity);
-categorySelect.addEventListener("change", checkFormValidity);
+    // Ajout des écouteurs d'événements sur les champs
+
+    fileInput.addEventListener("change", checkFormValidity);
+    titleInput.addEventListener("input", checkFormValidity);
+    categorySelect.addEventListener("change", checkFormValidity);
 
 // Désactiver le bouton au chargement
 submitButton.disabled = true;
@@ -174,7 +195,7 @@ console.log("Requête envoyée avec token :", token);
 
 if (response.ok) {
     const newProject = await response.json(); // Récupérer la réponse de l'API
-console.log("Projet ajouté avec succès !", newProject);
+    console.log("Projet ajouté avec succès !", newProject);
 
  // **Mettre à jour dynamiquement l'affichage sans recharger la page**
 
@@ -209,13 +230,13 @@ console.log("Projet ajouté avec succès !", newProject);
             modalFigure.appendChild(img);
             modalFigure.appendChild(deleteButton);
             modalGallery.appendChild(modalFigure);
-
+       
 // Réinitialisation du formulaire
-fileInput.value = "";
-titleInput.value = "";
-categorySelect.value = "";
-submitButton.disabled = true;
-submitButton.style.backgroundColor = "#A7A7A7"; // Remet le bouton en gris
+    fileInput.value = "";
+    titleInput.value = "";
+    categorySelect.value = "";
+    submitButton.disabled = true;
+    submitButton.style.backgroundColor = "#A7A7A7"; // Remet le bouton en gris
 
 // Fermer la modale
 modalAddProject.style.display = "none";
@@ -233,5 +254,6 @@ console.error("Erreur réseau :", error);
 submitButton.addEventListener("click", function () {
 if (!submitButton.disabled) {
 sendNewProject();
+resetAddProjectModal();
 }
 });

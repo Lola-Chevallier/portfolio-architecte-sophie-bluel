@@ -1,4 +1,5 @@
-// Réupération des catégories
+// Récupération des catégories
+
 export const categories = await fetchCategories();
 async function fetchCategories() {
   try {
@@ -77,4 +78,3 @@ async function filterProjectsByCategory(categoryId) {
     displayProjects(filteredProjects);
 }
 
-// Fonction d'affichage des projets
