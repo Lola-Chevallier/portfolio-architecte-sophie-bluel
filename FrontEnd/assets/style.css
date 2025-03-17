@@ -42,7 +42,7 @@ body {
 }
 
 body, * {
-    cursor: default !important;
+    cursor: default;
 }
 
 ol, ul {
